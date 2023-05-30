@@ -239,6 +239,11 @@ class Report extends Element {
         if($this->pageChanged == true){
             $this->pageChanged = false;
         }
+        if (count($obj->arrayGroup) > 0) {
+            foreach ($obj->arrayGroup as $group) {
+                $group->resetVariables = 'false';
+            }
+        }
     }
 
     public function setReturnVariables($subReportTag, $arrayVariablesSubReport) {
@@ -423,7 +428,7 @@ class Report extends Element {
         }
         
         $value = (array_key_exists('ans', $this->arrayVariable[$k])) ? $this->arrayVariable[$k]["ans"] : null;
-        $newValue = (isset($mathValue)) ? $mathValue : $out['target'];
+        $newValue = (isset($mathValue)) ? $mathValue : strval($out['target']);
         $resetType = (array_key_exists('resetType', $out)) ? $out['resetType'] : '';
         
         switch ($out["calculation"]) {
@@ -482,7 +487,7 @@ class Report extends Element {
         $this->arrayVariable[$k]["lastValue"] = $newValue;
         if ($resetType == 'Group') {
             if ($this->arrayGroup[$out['resetGroup']]->resetVariables == 'true') {
-                $value = $newValue;
+                $value = $this->arrayVariable[$k]["initialValue"];
             }
         }
         
