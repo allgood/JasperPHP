@@ -154,11 +154,13 @@ class StaticText extends Element {
 
     /**
      * Return format for a component of a box
-     * @param unknown $pen
+     * @param \SimpleXMLElement $pen
      * @return number[]|string[]|number[][]
      */
     public static function formatPen($pen)
     {
+        $drawcolor = array("r" => 0, "g" => 0, "b" => 0);
+        
         if (isset($pen["lineColor"])) {
             $drawcolor = array(
                 "r" => hexdec(substr($pen["lineColor"], 1, 2)),
@@ -189,20 +191,20 @@ class StaticText extends Element {
     
     /**
      * Returns patterns for all borders of a box
-     * @param unknown $box
+     * @param \SimpleXMLElement $box
      * @return Array[]
      */
     public static function formatBox($box)
     {
         $border = Array();
         $borderset = "";
-        if ($box->topPen["lineWidth"] > 0)
+        if ($box->topPen["lineWidth"] > 0.0)
             $border["T"] = StaticText::formatPen($box->topPen);
-        if ($box->leftPen["lineWidth"] > 0)
+        if ($box->leftPen["lineWidth"] > 0.0)
             $border["L"] = StaticText::formatPen($box->leftPen);
-        if ($box->bottomPen["lineWidth"] > 0)
+        if ($box->bottomPen["lineWidth"] > 0.0)
             $border["B"] = StaticText::formatPen($box->bottomPen);
-        if ($box->rightPen["lineWidth"] > 0)
+        if ($box->rightPen["lineWidth"] > 0.0)
             $border["R"] = StaticText::formatPen($box->rightPen);
 
         return $border;
