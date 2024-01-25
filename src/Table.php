@@ -73,16 +73,16 @@ class Table extends Element
   
 	
 		//top border cell
-        if (isset($box->topPen["lineWidth"]) && $box->topPen["lineWidth"]>0)			
+        if (isset($box->topPen["lineWidth"]) && $box->topPen["lineWidth"] > 0.0)			
             $border['T']=$this->formatPen($box,$box->topPen);
 		//leftPen border cell
-        if (isset($box->leftPen["lineWidth"]) && $box->leftPen["lineWidth"]>0)			
+        if (isset($box->leftPen["lineWidth"]) && $box->leftPen["lineWidth"] > 0.0)			
             $border['L']=$this->formatPen($box,$box->leftPen);
 		//bottomPen border cell		
-        if (isset($box->bottomPen["lineWidth"]) && $box->bottomPen["lineWidth"]>0)			
+        if (isset($box->bottomPen["lineWidth"]) && $box->bottomPen["lineWidth"] > 0.0)			
             $border['B']=$this->formatPen($box,$box->bottomPen);
 		//rightPen border cell
-        if (isset($box->rightPen["lineWidth"]) && $box->rightPen["lineWidth"]>0)			
+        if (isset($box->rightPen["lineWidth"]) && $box->rightPen["lineWidth"] > 0.0)
             $border['R']=$this->formatPen($box,$box->rightPen);		
 		return $border;		
 	}
@@ -174,7 +174,7 @@ class Table extends Element
 				//print_r($newParameters);			
 				$sql = trim($dataSet->queryString);
 				$sql = $obj->prepareSql($sql,$newParameters);
-				$dataRowTable = $obj->getDbDataQuery($sql);						
+   			    $dataRowTable = $obj->getDbDataQuery($sql);
 			}	
 		}
 		//get all columns	
