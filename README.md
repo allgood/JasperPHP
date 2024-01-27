@@ -101,7 +101,6 @@ See more blog, documentation, and more on https://jasperphp.net
         <td>OK</td>
         <td>dynamic table</td>
         <td>OK</td>
-        
     </tr>
 </table>
 * Subreports are supported recursively and unlimited
@@ -114,6 +113,7 @@ See more blog, documentation, and more on https://jasperphp.net
     <li>textfield with html render with data replacement</li>
     <li>active record</li>
     <li>Conditional styles ready too</li>
+    <li>support for Laravel DB Facade adding tag `property name="net.sf.jasperreports.data.adapter" value="laravel.sqlsrv"` on jrxml files or edit Default data adapter on report properties on JasperSoft Studio</li>
 </lu>
 <br>
 
